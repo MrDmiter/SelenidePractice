@@ -18,7 +18,11 @@ public class SignInPage extends BasePage {
     @FindBy(xpath = "//button[@id='SubmitLogin']/span")
     private WebElement signInBtn;
 
-
+    /**
+     * Login to the account
+     *
+     * @return MyAccountPage
+     */
     public MyAccountPage signIn() {
         $(emailTextField).setValue("gavuyabavu@digitalmail.info");
         $(passTextField).setValue("12345");
@@ -26,6 +30,9 @@ public class SignInPage extends BasePage {
         return page(MyAccountPage.class);
     }
 
+    /**
+     * Presence on particular page
+     */
     public void presenceOnPageVerification() {
         Assert.assertEquals("Login - My Store", title());
     }

@@ -9,16 +9,24 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class MyAccountPage extends BasePage {
 
+    //Web elements
     @FindBy(xpath = "//div[@class='header_user_info']/descendant::span")
     private WebElement name;
 
     @FindBy(xpath = "//div/a[@class='logout']")
     private WebElement logoutBtn;
 
+    /**
+     * Check whether it is right account
+     */
     public void accountVerification() {
         $(name).shouldHave(text("Dmytro Terentyev"));
     }
 
+    /**
+     * Sign out from account
+     * @return SignInPage
+     */
     public SignInPage signOut() {
         $(logoutBtn).click();
         return page(SignInPage.class);

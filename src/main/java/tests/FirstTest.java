@@ -1,7 +1,6 @@
 package tests;
 
 import base.BaseTest;
-import com.codeborne.selenide.Configuration;
 import org.junit.Test;
 import pages.HomePage;
 import pages.MyAccountPage;
@@ -11,13 +10,18 @@ public class FirstTest extends BaseTest {
 
     @Test
     public void testFirstTest() {
-        Configuration.startMaximized = true;
+        //Open site
         HomePage homePage = openSite();
+        //Proceed tot sign in page
         SignInPage signInPage = homePage.click();
+        //Sign in to my account
         MyAccountPage myAccountPage = signInPage.signIn();
+        //Verify presence on the right account
         myAccountPage.accountVerification();
+        //Sign out
         myAccountPage.signOut();
+        //Verify sign out
         signInPage.presenceOnPageVerification();
-        
+
     }
 }
