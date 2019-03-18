@@ -1,16 +1,16 @@
 package base;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit.ScreenShooter;
 import org.junit.After;
 import org.junit.Rule;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.BasePage;
 import pages.HomePage;
-import pages.MyAccountPage;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.*;
 
 public class BaseTest {
 
@@ -21,7 +21,7 @@ public class BaseTest {
     //Constructor
     public BaseTest() {
         Configuration.startMaximized = true;
-    }
+     }
 
     /**
      * Open site
@@ -40,13 +40,14 @@ public class BaseTest {
     public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests().succeededTests();
 
     /**
-     * Doesn`t work, can`t understand why????????
+     * Logout from account if needed
      */
     @After
     public void tearDown() {
-//        if($(logout).is(Condition.visible)){
-//            $(logout).click();
-//        }
+        page(this);
+        if($(logout).is(Condition.visible)){
+            $(logout).click();
+        }
    }
 }
 

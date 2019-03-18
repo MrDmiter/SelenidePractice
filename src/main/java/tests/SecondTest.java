@@ -9,6 +9,7 @@ import pages.SummerDressesPage;
 
 public class SecondTest extends BaseTest {
 
+
     @Test
     public void testSecondTest() {
         //Open site

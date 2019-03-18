@@ -24,6 +24,8 @@ public abstract class BasePage {
         page(this);
     }
 
+
+
     /**
      * Click on summer dresses tab
      *
