@@ -21,7 +21,8 @@ public class BaseTest {
     //Constructor
     public BaseTest() {
         Configuration.startMaximized = true;
-     }
+
+    }
 
     /**
      * Open site

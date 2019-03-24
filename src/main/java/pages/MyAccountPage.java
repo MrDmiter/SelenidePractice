@@ -1,5 +1,6 @@
 package pages;
 
+import base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -15,6 +16,10 @@ public class MyAccountPage extends BasePage {
 
     @FindBy(xpath = "//div/a[@class='logout']")
     private WebElement logoutBtn;
+
+    MyAccountPage(BaseTest testClass) {
+        super(testClass);
+    }
 
     /**
      * Check whether it is right account

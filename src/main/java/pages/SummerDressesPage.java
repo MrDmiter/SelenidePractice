@@ -1,5 +1,6 @@
 package pages;
 
+import base.BaseTest;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import org.junit.Assert;
@@ -21,6 +22,10 @@ public class SummerDressesPage extends BasePage {
 
     @FindBy(xpath = "//ul[@class='product_list grid row']/p/img")
     private WebElement loader;
+
+    SummerDressesPage(BaseTest testClass) {
+        super(testClass);
+    }
 
     /**
      * Check displayed amount of the products and compare with counter

@@ -1,5 +1,6 @@
 package pages;
 
+import base.BaseTest;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +18,10 @@ public class SignInPage extends BasePage {
 
     @FindBy(xpath = "//button[@id='SubmitLogin']/span")
     private WebElement signInBtn;
+
+    SignInPage(BaseTest testClass) {
+        super(testClass);
+    }
 
     /**
      * Login to the account

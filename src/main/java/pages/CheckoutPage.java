@@ -1,5 +1,6 @@
 package pages;
 
+import base.BaseTest;
 import com.codeborne.selenide.Condition;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -28,6 +29,10 @@ public class CheckoutPage extends BasePage {
     //Locator which represent window with quantity of the products in the cart
     private static final String PRODUCT_QUANTITY =
             "//td[@class='cart_quantity text-center']/input[@type='text']";
+
+    CheckoutPage(BaseTest testClass) {
+        super(testClass);
+    }
 
     /**
      * Verify total price depending on the amount of the added product to the cart

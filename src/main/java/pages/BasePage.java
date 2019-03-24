@@ -1,5 +1,6 @@
 package pages;
 
+import base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -19,9 +20,14 @@ public abstract class BasePage {
                     "//ul[@class='sf-menu clearfix menu-content sf-js-enabled sf-arrows']/li/a[@title='T-shirts']")
     private WebElement tShirts;
 
+    protected BaseTest testClass;
+
+
     //Constructor
-    BasePage() {
+    BasePage(BaseTest testClass) {
         page(this);
+        this.testClass = testClass;
+
     }
 
 

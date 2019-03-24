@@ -1,5 +1,6 @@
 package pages;
 
+import base.BaseTest;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,10 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//a[@title='Proceed to checkout']")
     private WebElement proceedToCheckout;
 
+    ProductPage(BaseTest testClass) {
+        super(testClass);
+    }
+
     /**
      * Verify breadcrumbs
      *
@@ -25,6 +30,7 @@ public class ProductPage extends BasePage {
      */
     public void verifyBreadCrumbs(String expectedBreadCrumbs) {
         Assert.assertEquals(expectedBreadCrumbs, $(breadCrumbs).text());
+
     }
 
     /**
