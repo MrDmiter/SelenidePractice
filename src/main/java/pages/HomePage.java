@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class HomePage extends BasePage {
 
-    HomePage(BaseTest testClass) {
+    public HomePage(BaseTest testClass) {
         super(testClass);
     }
 
@@ -18,7 +18,7 @@ public class HomePage extends BasePage {
      */
     public SignInPage click() {
         $(By.xpath("//div/a[@class='login']")).click();
-        return page(SignInPage.class);
+        return new SignInPage(testClass);
     }
 
 }

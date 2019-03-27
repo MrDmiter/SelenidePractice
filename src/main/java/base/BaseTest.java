@@ -5,7 +5,9 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit.ScreenShooter;
 import org.junit.After;
 import org.junit.Rule;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.HomePage;
@@ -18,10 +20,17 @@ public class BaseTest {
     @FindBy(xpath = "//div/a[@class='logout']")
     WebElement logout;
 
+    private WebDriver driver;
+
     //Constructor
     public BaseTest() {
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        driver = new ChromeDriver();
         Configuration.startMaximized = true;
+    }
 
+    public WebDriver getDriver() {
+        return driver;
     }
 
     /**
@@ -31,7 +40,7 @@ public class BaseTest {
      */
     public HomePage openSite() {
         open("http://automationpractice.com");
-        return page(HomePage.class);
+        return new HomePage(this);
     }
 
     /**

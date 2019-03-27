@@ -34,7 +34,7 @@ public class MyAccountPage extends BasePage {
      */
     public SignInPage signOut() {
         $(logoutBtn).click();
-        return page(SignInPage.class);
+        return new SignInPage(testClass);
     }
 
 }

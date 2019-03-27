@@ -31,7 +31,7 @@ public class TShirtsPage extends BasePage {
      */
     public ProductPage clickOnProduct(String nameOfProduct) {
         $(By.xpath(String.format(PRODUCT_DETAILS_XPATH, nameOfProduct))).click();
-        return page(ProductPage.class);
+        return new ProductPage(testClass);
     }
 
 

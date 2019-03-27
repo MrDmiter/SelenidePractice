@@ -41,6 +41,6 @@ public class ProductPage extends BasePage {
     public CheckoutPage addToCartAndProceedToCheckout() {
         $(addToCart).click();
         $(proceedToCheckout).click();
-        return page(CheckoutPage.class);
+        return new CheckoutPage(testClass);
     }
 }

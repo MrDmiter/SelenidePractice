@@ -32,8 +32,7 @@ public class SignInPage extends BasePage {
         $(emailTextField).setValue("gavuyabavu@digitalmail.info");
         $(passTextField).setValue("12345");
         $(signInBtn).click();
-        return page(MyAccountPage.class);
-    }
+        return new MyAccountPage(testClass);    }
 
     /**
      * Presence on particular page

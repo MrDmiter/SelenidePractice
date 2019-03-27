@@ -3,6 +3,7 @@ package pages;
 import base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
@@ -20,15 +21,16 @@ public abstract class BasePage {
                     "//ul[@class='sf-menu clearfix menu-content sf-js-enabled sf-arrows']/li/a[@title='T-shirts']")
     private WebElement tShirts;
 
+
     protected BaseTest testClass;
 
 
     //Constructor
     BasePage(BaseTest testClass) {
-        page(this);
+        PageFactory.initElements(testClass.getDriver(),this);
         this.testClass = testClass;
-
     }
+
 
 
 
@@ -40,7 +42,7 @@ public abstract class BasePage {
     public SummerDressesPage hoverOverDressesItem() {
         $(dressesTab).hover();
         $(summerDressesTab).click();
-        return page(SummerDressesPage.class);
+        return new SummerDressesPage(testClass);
     }
 
     /**
