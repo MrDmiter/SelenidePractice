@@ -52,7 +52,7 @@ public abstract class BasePage {
      */
     public TShirtsPage clickOnTShirts() {
         $(tShirts).click();
-        return page(TShirtsPage.class);
+        return new TShirtsPage(testClass);
     }
 
 }

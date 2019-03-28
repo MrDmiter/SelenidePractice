@@ -13,6 +13,7 @@ import pages.BasePage;
 import pages.HomePage;
 
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
 public class BaseTest {
 
@@ -26,7 +27,8 @@ public class BaseTest {
     public BaseTest() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
-        Configuration.startMaximized = true;
+        driver.manage().window().maximize();
+        setWebDriver(driver);
     }
 
     public WebDriver getDriver() {
@@ -54,11 +56,8 @@ public class BaseTest {
      */
     @After
     public void tearDown() {
-        page(this);
-        if($(logout).is(Condition.visible)){
-            $(logout).click();
-        }
-   }
+       driver.quit();
+    }
 }
 
 

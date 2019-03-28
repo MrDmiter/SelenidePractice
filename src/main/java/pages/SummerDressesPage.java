@@ -30,19 +30,24 @@ public class SummerDressesPage extends BasePage {
     /**
      * Check displayed amount of the products and compare with counter
      */
-    public void verifyAmountOfProducts(){
+    public void verifyAmountOfProducts() {
         int amountShownByCounter = Integer.parseInt(headingCounter.getText().replaceAll("\\D", ""));
         //Get list of the available products on the page
         ElementsCollection productsOnPage = $$(By.xpath("//span[@class='available-now']"));
         //Check loader presence
-        $(loader).shouldBe(Condition.disappear);
-        //Compare counter value with amount of the displayed products
-        Assert.assertEquals(amountShownByCounter, productsOnPage.size());
-        System.out.println("amountShownByCounter " + amountShownByCounter+" " + "products displayed on the page " +productsOnPage.size());
+        if ($(loader).isDisplayed()) {
+            System.out.println("Haven`t uploaded the page");
+        } else {
+            //Compare counter value with amount of the displayed products
+            Assert.assertEquals(amountShownByCounter, productsOnPage.size());
+            System.out.println("amountShownByCounter " + amountShownByCounter + " " + "products displayed on the page " + productsOnPage.size());
+        }
+
 
     }
+
     //Choose color filter
-    public void chooseColor(){
+    public void chooseColor() {
         $(whiteColorIcon).click();
     }
 
